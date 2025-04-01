@@ -1,3 +1,5 @@
 #!/usr/bin/env python3
 
 import sys
+
+sys.stdout.buffer.write(b'\x6C\x69\x62\x62\x79\x63\x6F\x78\x00\x00\x41\x2B')
